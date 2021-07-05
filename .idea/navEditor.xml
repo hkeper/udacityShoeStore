@@ -8,14 +8,23 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="instructionFragment">
+                  <entry key="instruction_destination">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="334" />
-                            <option name="y" value="262" />
+                            <option name="x" value="290" />
+                            <option name="y" value="39" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_instructionFragment_to_shoeListFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -41,13 +50,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="shoeDetailsFragment">
+                  <entry key="shoedetails_destination">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="537" />
-                            <option name="y" value="-99" />
+                            <option name="x" value="678" />
+                            <option name="y" value="41" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -62,13 +71,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="shoeListFragment">
+                  <entry key="shoelist_destination">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="332" />
-                            <option name="y" value="-99" />
+                            <option name="x" value="485" />
+                            <option name="y" value="35" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -83,7 +92,7 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="welcomeFragment">
+                  <entry key="welcome_destination">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -95,11 +104,6 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_welcomeFragment_to_instructionFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_welcomeFragment_to_shoeListFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

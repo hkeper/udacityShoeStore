@@ -1,60 +1,75 @@
 package com.udacity.shoestore.screens.shoe.list
 
 import android.os.Bundle
+import android.view.*
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.ListItemShoeBinding
+import com.udacity.shoestore.databinding.ShoelistFragmentBinding
+import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.screens.shoe.ShoeViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ShoeListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ShoeListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val shoeViewModel: ShoeViewModel by activityViewModels()
+    private lateinit var binding: ShoelistFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.shoelist_fragment, container, false)
+        binding.addShoeButton.setOnClickListener {
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
+        }
+        shoeViewModel.listOfShoes.observe(viewLifecycleOwner, Observer { list ->
+            list?.let {
+                displayShoes(it)
+            }
+        })
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ShoeListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ShoeListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.login_fragment) {
+            logout()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun logout() {
+        findNavController().navigate(R.id.action_shoelist_destination_to_login_destination)
+    }
+
+    private fun displayShoes(shoes: List<Shoe>) {
+        shoes.forEach {
+
+            val listItemShoeBinding: ListItemShoeBinding = DataBindingUtil.inflate(
+                layoutInflater, R.layout.list_item_shoe, null, false)
+
+            listItemShoeBinding.shoeName.text =
+                getString(R.string.string_value, "Shoe name:", it.name)
+            listItemShoeBinding.shoeCompany.text =
+                getString(R.string.string_value, "Company name:", it.company)
+            listItemShoeBinding.shoeSize.text =
+                getString(R.string.double_value, "Shoe size:", it.size)
+            listItemShoeBinding.shoeDescription.text =
+                getString(R.string.string_value, "Description:", it.description)
+
+            binding.shoeListContainer.addView(listItemShoeBinding.root)
+        }
+    }
+
 }

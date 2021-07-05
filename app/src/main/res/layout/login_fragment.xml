@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.screens.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_destination"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/fragment_horizontal_margin"
+        android:paddingTop="@dimen/fragment_vertical_margin"
+        android:paddingRight="@dimen/fragment_horizontal_margin"
+        android:paddingBottom="@dimen/fragment_vertical_margin"
+        tools:context=".screens.login.LoginFragment">
+
+        <TextView
+            android:id="@+id/email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:labelFor="@id/email_field"
+            android:text="@string/email_label"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/email_field"
+            app:layout_constraintStart_toStartOf="@+id/email_field"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/email_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/email_hint"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/password_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/password_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:labelFor="@id/password_field"
+            android:text="@string/password_label"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/password_field"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/password_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/password_hint"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45"/>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/login_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_field" />
+
+        <Button
+            android:id="@+id/create_account_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_account_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

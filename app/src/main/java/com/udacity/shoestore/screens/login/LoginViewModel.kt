@@ -1,4 +1,12 @@
 package com.udacity.shoestore.screens.login
 
-class LoginViewModel {
+import android.os.CountDownTimer
+import androidx.lifecycle.ViewModel
+
+class LoginViewModel : ViewModel() {
+
+    init {
+
+    }
+
 }

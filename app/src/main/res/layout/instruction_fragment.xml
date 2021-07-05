@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:id="@+id/instruction_destination"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".screens.onboarding.InstructionFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/fragment_horizontal_margin"
+            android:paddingTop="@dimen/fragment_vertical_margin"
+            android:paddingRight="@dimen/fragment_horizontal_margin"
+            android:paddingBottom="@dimen/fragment_vertical_margin"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/instruction_img"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:contentDescription="@string/content_desc"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2"
+                app:srcCompat="@drawable/ic_baseline_info_24" />
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instruction"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instruction_img" />
+
+            <TextView
+                android:id="@+id/instruction_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/instruction_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instruction" />
+
+            <Button
+                android:id="@+id/shoe_list_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/shoelist_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instruction_text" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

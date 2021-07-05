@@ -1,7 +1,31 @@
 <resources>
-    <string name="app_name">ShoeStore</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Shoe Store</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login_button">Login</string>
+    <string name="save_button">Save</string>
+    <string name="cancel_button">Cancel</string>
     <string name="create_account_button">Create Account</string>
+    <string name="email_label">Email:</string>
+    <string name="email_hint">Please enter your Email</string>
+    <string name="shoe_name_hint">Please enter shoe name</string>
+    <string name="shoe_company_hint">Please enter shoe company</string>
+    <string name="shoe_size_hint">Please enter shoe size</string>
+    <string name="shoe_description_hint">Please enter shoe description</string>
+    <string name="shoe_name">Name</string>
+    <string name="shoe_company">Company</string>
+    <string name="shoe_size">Size</string>
+    <string name="shoe_description">Description</string>
+    <string name="password_label">Password:</string>
+    <string name="password_hint">Please enter your Password</string>
+    <string name="welcome">Welcome!</string>
+    <string name="welcome_text">We so glad to see you here!\nThis is very useful and interesting application helps you a lot!</string>
+    <string name="instruction">Instruction</string>
+    <string name="instruction_text">We hope this tutorial will help you to understand how to use our gorgeous.</string>
+    <string name="content_desc">This is image</string>
+    <string name="next">Next</string>
+    <string name="shoelist_button">Shoe List</string>
+    <string name="instruction_button">Instructions</string>
+    <string name="logout">Logout</string>
+    <string name="string_value">%s %s</string>
+    <string name="double_value">%s %.1f</string>
 </resources>
