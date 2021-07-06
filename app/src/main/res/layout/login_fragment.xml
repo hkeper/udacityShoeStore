@@ -9,6 +9,7 @@
             type="com.udacity.shoestore.screens.login.LoginViewModel" />
     </data>
 
+    <!--View contains views for login-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_destination"
         android:layout_width="match_parent"

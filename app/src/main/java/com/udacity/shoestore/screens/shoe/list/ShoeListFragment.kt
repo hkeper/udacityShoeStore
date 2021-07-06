@@ -6,7 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListItemShoeBinding
 import com.udacity.shoestore.databinding.ShoelistFragmentBinding
@@ -25,9 +27,11 @@ class ShoeListFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,
             R.layout.shoelist_fragment, container, false)
+
         binding.addShoeButton.setOnClickListener {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
         }
+
         shoeViewModel.listOfShoes.observe(viewLifecycleOwner, Observer { list ->
             list?.let {
                 displayShoes(it)
@@ -46,7 +50,8 @@ class ShoeListFragment : Fragment() {
         if (item.itemId == R.id.login_fragment) {
             logout()
         }
-        return super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 
     private fun logout() {
@@ -55,20 +60,21 @@ class ShoeListFragment : Fragment() {
 
     private fun displayShoes(shoes: List<Shoe>) {
         shoes.forEach {
-
             val listItemShoeBinding: ListItemShoeBinding = DataBindingUtil.inflate(
                 layoutInflater, R.layout.list_item_shoe, null, false)
 
-            listItemShoeBinding.shoeName.text =
-                getString(R.string.string_value, "Shoe name:", it.name)
-            listItemShoeBinding.shoeCompany.text =
-                getString(R.string.string_value, "Company name:", it.company)
-            listItemShoeBinding.shoeSize.text =
-                getString(R.string.double_value, "Shoe size:", it.size)
-            listItemShoeBinding.shoeDescription.text =
-                getString(R.string.string_value, "Description:", it.description)
+            with(listItemShoeBinding) {
+                shoeName.text =
+                    getString(R.string.string_value, "Shoe name:", it.name)
+                shoeCompany.text =
+                    getString(R.string.string_value, "Company name:", it.company)
+                shoeSize.text =
+                    getString(R.string.double_value, "Shoe size:", it.size)
+                shoeDescription.text =
+                    getString(R.string.string_value, "Description:", it.description)
 
-            binding.shoeListContainer.addView(listItemShoeBinding.root)
+                binding.shoeListContainer.addView(root)
+            }
         }
     }
 
