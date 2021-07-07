@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -47,15 +48,8 @@ class ShoeListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.login_fragment) {
-            logout()
-        }
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(item, findNavController())
                 || super.onOptionsItemSelected(item)
-    }
-
-    private fun logout() {
-        findNavController().navigate(R.id.action_shoelist_destination_to_login_destination)
     }
 
     private fun displayShoes(shoes: List<Shoe>) {

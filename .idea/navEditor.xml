@@ -34,8 +34,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-112" />
-                            <option name="y" value="38" />
+                            <option name="x" value="-120" />
+                            <option name="y" value="40" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -83,11 +83,6 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_shoeListFragment_to_shoeDetailsFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_shoelist_destination_to_login_destination">
                               <value>
                                 <LayoutPositions />
                               </value>
