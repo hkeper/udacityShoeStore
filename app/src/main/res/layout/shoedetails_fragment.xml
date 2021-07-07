@@ -10,14 +10,12 @@
         <import type="com.udacity.shoestore.utility.Converter"/>
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:fillViewport="true">
 
-        <!--View contains views for adding shoe information-->
+        <!-- ConstraintLayout preferred because of better scalability -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/shoe_details_destination"
             android:layout_width="match_parent"
@@ -167,5 +165,5 @@
                 app:layout_constraintTop_toBottomOf="@+id/save_button" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

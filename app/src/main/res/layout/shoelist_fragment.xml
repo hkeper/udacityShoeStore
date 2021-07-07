@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--View contains view for the list of shoes with button view for adding shoe-->
+    <!-- ConstraintLayout preferred because of better scalability -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EFEFF4">
+        tools:context=".screens.shoe.list.ShoeListFragment" >
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:context=".screens.shoe.list.ShoeListFragment">
+            app:layout_constraintTop_toTopOf="parent" >
 
+            <!-- LinearLayout is better for list of items(shoes) -->
             <LinearLayout
                 android:id="@+id/shoe_list_container"
                 android:layout_width="match_parent"

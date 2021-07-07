@@ -1,14 +1,12 @@
 package com.udacity.shoestore.screens.shoe.list
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
@@ -34,7 +32,7 @@ class ShoeListFragment : Fragment() {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
         }
 
-        shoeViewModel.listOfShoes.observe(viewLifecycleOwner, Observer { list ->
+        shoeViewModel.listOfShoes.observe(viewLifecycleOwner, { list ->
             list?.let {
                 displayShoes(it)
             }
@@ -49,7 +47,7 @@ class ShoeListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().popBackStack()
+        findNavController().navigate(ShoeListFragmentDirections.actionShoelistDestinationToLoginDestination())
         return NavigationUI.onNavDestinationSelected(item, findNavController())
                 || super.onOptionsItemSelected(item)
     }

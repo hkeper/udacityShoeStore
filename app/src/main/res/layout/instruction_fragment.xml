@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--View contains instruction information-->
-    <ScrollView
-        android:id="@+id/instruction_destination"
+    <!-- Scroll view needed for correct displaying with different resolutions -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        tools:context=".screens.onboarding.InstructionFragment">
+        android:fillViewport="true">
 
+        <!-- ConstraintLayout preferred because of better scalability -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,7 +17,8 @@
             android:paddingTop="@dimen/fragment_vertical_margin"
             android:paddingRight="@dimen/fragment_horizontal_margin"
             android:paddingBottom="@dimen/fragment_vertical_margin"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:context=".screens.onboarding.InstructionFragment">
 
             <ImageView
                 android:id="@+id/instruction_img"
@@ -62,7 +62,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/instruction_text" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>
