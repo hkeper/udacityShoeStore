@@ -7,7 +7,7 @@
         <variable
             name="shoeViewModel"
             type="com.udacity.shoestore.screens.shoe.ShoeViewModel" />
-
+        <import type="com.udacity.shoestore.utility.Converter"/>
     </data>
 
     <ScrollView
@@ -109,7 +109,7 @@
                 android:ems="10"
                 android:importantForAutofill="no"
                 android:inputType="numberDecimal"
-                android:text="@={``+shoeViewModel.shoe.size}"
+                android:text="@={Converter.decimalToText(shoeSize, shoeViewModel.shoe.size, shoeViewModel.shoe.size)}"
                 app:layout_constraintBottom_toTopOf="@+id/shoe_description_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
